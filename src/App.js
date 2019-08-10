@@ -2,23 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Highlight from 'react-highlight'
+import 'highlight.js/styles/arta.css'
+import 'highlight.js/lib/languages/java'
+
 function App() {
+ const code = `"if(stArray[start].contains("do") && stArray[start].contains("{") ) {
+  System.out.println("Line number " + start + " has a do statement");
+  Ctc = Ctc +2; 
+  
+ divideBySpaces = stArray[start].split("\\s");
+ for (y=0; y<divideBySpaces.length;y++) {
+   if(divideBySpaces[y].equals("&&") || divideBySpaces[y].equals("||") || divideBySpaces[y].equals("&") || divideBySpaces[y].equals("|")) {
+     Ctc++;
+   }
+ }
+}"`
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Highlight className='Java' innerHTML={true}>
+        {code}
+      </Highlight>
     </div>
   );
 }
